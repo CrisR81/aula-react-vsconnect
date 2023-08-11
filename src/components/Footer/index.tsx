@@ -25,7 +25,7 @@ return (
             Temos algumas dicas para o seu serviço ou freela ser um sucesso,
             acesse nossa página de recomendações para saber mais.
           </p>
-          <a className="botao botao_dicas" href="#">
+          <a className="botao " id="botao_dicas" href="#">
             mais dicas
           </a>
         </div>

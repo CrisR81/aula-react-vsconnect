@@ -1,6 +1,7 @@
 
 import "./style.css"
 import Logo from "../../assets/img/logo.svg" 
+import { Link } from "react-router-dom";
 
 function Header () {       //toda logica é aqui
 
@@ -58,7 +59,7 @@ return (           //só o html fica aqui dentrio
       <nav>
         <div id="menu_links" className="menu_links">
           <a href="../Home/index.html">home</a>
-          <a href="#">serviços</a>
+          <Link to="listaServicos">serviços</Link>
           <a href="../CadastroDev/index.html">cadastro</a>
         </div>
         <a className="header_icone_login" href="../Login/index.html">
