@@ -60,7 +60,7 @@ return (           //só o html fica aqui dentrio
         <div id="menu_links" className="menu_links">
           <a href="../Home/index.html">home</a>
           <Link to="listaServicos">serviços</Link>
-          <a href="../CadastroDev/index.html">cadastro</a>
+          <Link to="cadastroDev">Cadastro</Link>
         </div>
         <a className="header_icone_login" href="../Login/index.html">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
