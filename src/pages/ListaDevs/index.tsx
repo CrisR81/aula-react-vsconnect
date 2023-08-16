@@ -30,7 +30,7 @@ export default function listaDevs() {
             email: "alexia@email.com",
             skills: ["PYTHON", "VUE", "REACT"]
         } 
-
+  
     ]);
 
     const [skillDigitada, setSkillDigitada] = useState<string>("");
