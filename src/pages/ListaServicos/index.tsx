@@ -64,7 +64,7 @@ export default function ListaServicos() {
 
     function listarServicos() {
 
-        api.get("users").then((response: any) => {
+        api.get("servicos").then((response: any) => {
             console.log(response.data)
             setServs(response.data)
         } )
