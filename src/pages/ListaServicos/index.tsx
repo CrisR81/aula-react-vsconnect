@@ -33,7 +33,7 @@ export default function ListaServicos() {
 
     const [servicoDigitado, setServicoDigitado] = useState<string>("");
 
-    const [listaServFiltrados, setListaServFiltrados] = useState<any[]>(servs);
+    const [servicos, setServicos] = useState<any[]>(servs);
 
 
     useEffect( () => {
@@ -51,13 +51,13 @@ export default function ListaServicos() {
         if(servFiltrados.length === 0){
             alert("Nenhum servico com essa caracteristica foi encontrado")
         }else{
-            setListaServFiltrados(servFiltrados)
+            setServicos(servFiltrados)
         }
     }
 
     function retornoServicoGeral(event: any){
         if(event.target.value === ""){
-            setListaServFiltrados(servs)
+            listarServicos()
         }
         setServicoDigitado(event.target.value)
     }
@@ -65,8 +65,8 @@ export default function ListaServicos() {
     function listarServicos() {
 
         api.get("servicos").then((response: any) => {
-            console.log(response.data)
-            setServs(response.data)
+  
+            setServicos(response.data)
         } )
 
     }
@@ -88,13 +88,13 @@ export default function ListaServicos() {
                             </form>
                             <div className="wrapper_lista">
                                 <ul>
-                                    {listaServFiltrados.map((serv: any, index: number) => {
+                                    {servicos.map((serv: any, index: number) => {
                                         return <li key={index}>
                                             <CardServ
-                                            titulo={serv.titulo}
+                                            titulo={serv.nome}
                                             valor={serv.valor}
                                             descricao={serv.descricao}
-                                            techs={serv.skills}
+                                            techs={serv.techs}
                                             />
 
                                         </li>
