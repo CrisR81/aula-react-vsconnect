@@ -75,7 +75,7 @@ document.title = "VS Connect - Lista de Devs"
     }
 
     return (
-<main id="lista-devs">
+        <main id="lista-devs">
             <div className="container container_lista_devs">
                 <div className="lista_devs_conteudo">
                     <h1>Lista de Devs</h1>
