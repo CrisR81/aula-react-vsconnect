@@ -36,27 +36,27 @@ export default function ListaServicos() {
     const [servicos, setServicos] = useState<any[]>(servs);
 
 
-    useEffect( () => {
+    useEffect(() => {
         document.title = "VS Connect - Lista de Servicos"
 
-    listarServicos()
-    }, [] )
+        listarServicos()
+    }, [])
 
 
-    function buscarPorServico(event: any){
-        event.preventDefault(); 
+    function buscarPorServico(event: any) {
+        event.preventDefault();
 
-        const servFiltrados = servs.filter((serv: any) => serv.skills.includes(servicoDigitado.toLocaleUpperCase()))
+        const servFiltrados = servs.filter((serv: any) => serv.techs.includes(servicoDigitado.toLocaleUpperCase()))
 
-        if(servFiltrados.length === 0){
+        if (servFiltrados.length === 0) {
             alert("Nenhum servico com essa caracteristica foi encontrado")
-        }else{
+        } else {
             setServicos(servFiltrados)
         }
     }
 
-    function retornoServicoGeral(event: any){
-        if(event.target.value === ""){
+    function retornoServicoGeral(event: any) {
+        if (event.target.value === "") {
             listarServicos()
         }
         setServicoDigitado(event.target.value)
@@ -65,47 +65,46 @@ export default function ListaServicos() {
     function listarServicos() {
 
         api.get("servicos").then((response: any) => {
-  
+            console.log(response.data)
             setServicos(response.data)
-        } )
+        })
 
     }
-    
+
     return (
         <main id="lista-servicos">
-                <div className="container container_lista_servicos">
-                    <div className="lista_servicos_conteudo">
-                        <h1>Lista de Serviços</h1>
-                        <hr/>
-                            <form method="post" onSubmit={buscarPorServico}>
-                                <div className="wrapper_form">
-                                    <label htmlFor="busca">Procurar serviços</label>
-                                    <div className="campo-label">
-                                        <input type="search" name="campo-busca" id="busca" placeholder="Buscar serviços por tecnologias..." onChange={retornoServicoGeral} />
-                                            <button type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div className="wrapper_lista">
-                                <ul>
-                                    {servicos.map((serv: any, index: number) => {
-                                        return <li key={index}>
-                                            <CardServ
-                                            titulo={serv.nome}
-                                            valor={serv.valor}
-                                            descricao={serv.descricao}
-                                            techs={serv.techs}
-                                            />
-
-                                        </li>
-                                    }
-                                    )}
-
-                                </ul>
+            <div className="container container_lista_servicos">
+                <div className="lista_servicos_conteudo">
+                    <h1>Lista de Serviços</h1>
+                    <hr />
+                    <form method="post" onSubmit={buscarPorServico}>
+                        <div className="wrapper_form">
+                            <label htmlFor="busca">Procurar serviços</label>
+                            <div className="campo-label">
+                                <input type="search" name="campo-busca" id="busca" placeholder="Buscar serviços por tecnologias..." onChange={retornoServicoGeral} />
+                                <button type="submit">Buscar</button>
                             </div>
+                        </div>
+                    </form>
+                    <div className="wrapper_lista">
+                        <ul>
+                            {servicos.map((serv: any, index: number) => {
+                                return <li key={index}>
+                                    <CardServ
+                                        titulo={serv.nome}
+                                        valor={serv.valor}
+                                        descricao={serv.descricao}
+                                        techs={serv.techs}
+                                    />
+
+                                </li>
+                            }
+                            )}
+                        </ul>
                     </div>
                 </div>
-            </main>
-         
+            </div>
+        </main>
+
     )
 }

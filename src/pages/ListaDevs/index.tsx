@@ -56,6 +56,7 @@ document.title = "VS Connect - Lista de Devs"
         }else{
             setListaDevsFiltrados(devsFiltrados)
         }
+
     }
 
     function retornoDevsGeral(event: any){
