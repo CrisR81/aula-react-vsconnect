@@ -95,10 +95,11 @@ document.title = "VS Connect - Lista de Devs"
                             {devs.map((dev: any, index: number) => {
                                 return <li key={index}>
                                     <CardDev 
+                                    id={dev.id}
                                      foto={dev.img_perfil}
                                      nome={dev.nome}
                                      email={dev.email}
-                                     techs={dev.skills}
+                                     techs={dev.hardSkills}
                                          />
                                 </li>
                             }
