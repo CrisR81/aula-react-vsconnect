@@ -12,8 +12,8 @@ import api from "../../utils/api";
 
 function PerfilUsuario() {
 
+    
     const { idUsuario } = useParams();
-
 
     const [nome, setNome ] = useState<string>("")
     const [foto, setFoto ] = useState<string>("")
