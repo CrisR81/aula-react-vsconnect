@@ -8,7 +8,8 @@ export default function CardServ(props: any) {
 
         <div className="servico">
             <div className="topo_servico">
-                    <h3>{props.titulo}</h3>
+                <Link to={"/servicos" + props.id}>{props.nome}</Link>
+                    {/* <h3>{props.titulo}</h3> */}
                     <span>{props.valor}</span>
             </div>
             <p>{props.descricao}</p>
