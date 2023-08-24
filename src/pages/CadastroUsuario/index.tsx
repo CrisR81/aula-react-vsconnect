@@ -2,12 +2,18 @@
 import "./style.css";
 
 //Hook
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import api from "../../utils/api";
 
 
 function CadastroUsuario() {
+
+    useEffect(() => {
+        //Inserindo o título da guia de endereço da página atual.
+        document.title = "VSConnect - Cadastro Usuário";
+    }, []);
+
 
     //state techs com as tecnologias definidas
     const [techs, setTechs] = useState<string[]>(
